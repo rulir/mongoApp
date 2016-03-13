@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<title>mongoApp</title>
+</head>
+<body>
+	<div class="container" ng-controller="AppCtrl">
+		<h1>Contact List</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Number</th>
+					<th>Action</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" ng-model="contact.Name" class="form-control"></td>
+					<td><input type="text" ng-model="contact.Email" class="form-control"></td>
+					<td><input type="text" ng-model="contact.Number" class="form-control"></td>
+					<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+					<td><button class="btn btn-info" ng-click="updateContact()">Update Contact</button></td>
+				</tr>
+				<tr ng-repeat="item in contactlist">
+					<td>{{item.Name}}</td>
+					<td>{{item.Email}}</td>
+					<td>{{item.Number}}</td>
+					<td><button class="btn btn-danger" ng-click="removeContact(item)">Remove Contact</button></td>
+					<td><button class="btn btn-warning" ng-click="editContact(item)">Edit Contact</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="controllers/controller.js"></script>
+</body>
+</html>
